@@ -25,7 +25,8 @@ void Game::startGame() {
 void Game::nextFrame() {
     if (currentFrame <= 10) {
         currentFrame++;
-        std::cout << "Moving to frame " << currentFrame << std::endl;
+        if (currentFrame < 10)
+            std::cout << "Moving to frame " << currentFrame << std::endl;
     } else {
         std::cout << "Game over!" << std::endl;
         // Add any end-of-game logic if needed

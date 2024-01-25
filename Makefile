@@ -5,6 +5,7 @@ SRC =	main.cpp \
 		src/game/game.cpp \
 		src/player/player.cpp \
 		src/pointkeeper/PointKeeper.cpp \
+		src/checkers/checkers.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
