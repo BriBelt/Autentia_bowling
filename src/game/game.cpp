@@ -26,7 +26,8 @@ void Game::startGame() {
 void Game::nextFrame() {
     if (currentFrame <= 10) {
         currentFrame++;
-        std::cout << "Moving to frame " << currentFrame << std::endl;
+        if (currentFrame < 10)
+            std::cout << "Moving to frame " << currentFrame << std::endl;
     } else {
         std::cout << "Game over!" << std::endl;
         // Add any end-of-game logic if needed
@@ -38,7 +39,7 @@ void Game::playTurn() {
 
     for (std::map<std::string, Player>::iterator it = playersMap.begin(); it != playersMap.end(); ++it) {
         std::string playerName = it->second.getName();
-        int score;
+        int score, thr1, thr2;
 
         std::cout << "Enter score for player " << playerName << "'s first shot: ";
         std::cin >> score;
@@ -53,7 +54,8 @@ void Game::playTurn() {
 
         // Update player scores using the setScore function for the first shot
         it->second.setScore(currentFrame, score);
-
+        thr1 = score;
+        thr2 = 0;
         // Handle strikes and spares logic (you need to implement this in Player class)
         // For now, just print a message
         if (score == 10) {
@@ -77,7 +79,9 @@ void Game::playTurn() {
 
                 // Update player scores using the setScore function for the second shot
                 it->second.setScore(currentFrame, score, /* secondShot = */ true);
-
+                 if (currentFrame>1)
+                    pk.sumpunt(it->second, currentFrame -1, it->second.getScore(currentFrame-2));
+                pk.calc_punt(it->second, currentFrame-1, thr1, thr2);
                 std::cout << "Score for " << playerName << "'s second shot: " << score << std::endl;
             }
         }

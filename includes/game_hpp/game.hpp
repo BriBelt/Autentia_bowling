@@ -3,6 +3,7 @@
 
 #include <map>
 #include "../../includes/player_hpp/player.hpp"
+#include "../../includes/pointkeeper_hpp/PointKeeper.hpp"
 
 class Game {
 public:
@@ -13,6 +14,7 @@ public:
     void startGame();
     void nextFrame();
     void playTurn();
+    PointKeeper pk;
 
     // Getters
 
