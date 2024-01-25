@@ -37,7 +37,7 @@ void Game::playTurn() {
 
     for (std::map<std::string, Player>::iterator it = playersMap.begin(); it != playersMap.end(); ++it) {
         std::string playerName = it->second.getName();
-        int score;
+        int score, thr1, thr2;
 
         std::cout << "Enter score for player " << playerName << "'s first shot: ";
         std::cin >> score;
@@ -52,7 +52,8 @@ void Game::playTurn() {
 
         // Update player scores using the setScore function for the first shot
         it->second.setScore(currentFrame, score);
-
+        thr1 = score;
+        thr2 = 0;
         // Handle strikes and spares logic (you need to implement this in Player class)
         // For now, just print a message
         if (score == 10) {
@@ -76,7 +77,9 @@ void Game::playTurn() {
 
                 // Update player scores using the setScore function for the second shot
                 it->second.setScore(currentFrame, score, /* secondShot = */ true);
-
+                 if (currentFrame>1)
+                    pk.sumpunt(it->second, currentFrame, it->second.getScore(currentFrame-1));
+                pk.calc_punt(it->second, currentFrame, thr1, thr2);
                 std::cout << "Score for " << playerName << "'s second shot: " << score << std::endl;
             }
         }

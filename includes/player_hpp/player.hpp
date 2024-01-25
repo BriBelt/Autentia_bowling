@@ -23,7 +23,7 @@ public:
 	int	getSecondShots(int roundNum) const;
 	int	getPlayerNum(void) const;
 	int	getMultiplier(void) const;
-	void	setMultiplier(int value);
+	void setMultiplier(int value);
 	int	getTotalScore(void) const;
     int getScore(int roundNum) const;
     void setScore(int roundNum, int score, bool secondShot = false);

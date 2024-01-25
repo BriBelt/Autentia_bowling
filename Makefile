@@ -4,7 +4,7 @@ SRC =	main.cpp \
 		src/UI/ui.cpp \
 		src/game/game.cpp \
 		src/player/player.cpp \
-
+		src/pointkeeper/PointKeeper.cpp \
 
 OBJS = $(SRC:.cpp=.o)
 
