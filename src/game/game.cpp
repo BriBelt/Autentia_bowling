@@ -78,8 +78,8 @@ void Game::playTurn() {
                 // Update player scores using the setScore function for the second shot
                 it->second.setScore(currentFrame, score, /* secondShot = */ true);
                  if (currentFrame>1)
-                    pk.sumpunt(it->second, currentFrame, it->second.getScore(currentFrame-1));
-                pk.calc_punt(it->second, currentFrame, thr1, thr2);
+                    pk.sumpunt(it->second, currentFrame -1, it->second.getScore(currentFrame-2));
+                pk.calc_punt(it->second, currentFrame-1, thr1, thr2);
                 std::cout << "Score for " << playerName << "'s second shot: " << score << std::endl;
             }
         }
