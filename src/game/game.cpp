@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include "../../includes/game_hpp/game.hpp"
 #include "../../includes/UI_hpp/ui.hpp"
 
@@ -85,4 +86,7 @@ void Game::playTurn() {
     // After all players have entered their scores, you can print the results or perform additional logic.
 
     Printing::printScores(currentFrame, playersMap);
+
+    sleep(2);
+    system("clear");
 }

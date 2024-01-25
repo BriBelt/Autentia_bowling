@@ -44,14 +44,14 @@ void	printHeader(void)
 void	Printing::printScores(int round, std::map<std::string, Player> player)
 {
 	printHeader();
-	for (int i = 0; i < round; i++){
+	{
 		for (std::map<std::string, Player>::iterator it = player.begin(); it != player.end(); it++){
-			setPlayerIndex(i);
+			// setPlayerIndex(i);
 			setPlayerName(it->first);
 			setPlayerScore(round, it->second);
 			std::cout << std::endl;
 			std::cout << " _________________________________________________________________________ " << std::endl;
-			i++;
+			// i++;
 		}
 	}
 }
